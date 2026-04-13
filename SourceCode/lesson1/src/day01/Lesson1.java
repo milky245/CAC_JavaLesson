@@ -27,11 +27,15 @@ public class Lesson1 {
 		//Lesson1 のテキストを出力する
 
 		int num1 = 12;
-		double fl1 = 1.6;
+		double d1 = 1.6;
 		String str1 = "こんにちは";
 		char ch1 = 'a';
-		System.out.printf("%d%n%.1f%n%s%n%c%n", num1, fl1, str1, ch1);
+		System.out.printf("%d%n%.1f%n%s%n%c%n", num1, d1, str1, ch1);
 		//Another way to output
+
+        float f1 = 1.62f;
+        //be careful with float, you need to add 'f' at the end of the number to indicate it's a float, otherwise it will be treated as a double by default
+        System.out.printf("%.2f%n", f1);
 	}
 
 }
