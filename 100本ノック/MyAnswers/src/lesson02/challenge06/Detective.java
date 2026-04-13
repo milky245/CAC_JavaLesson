@@ -56,6 +56,13 @@ public class Detective {
                 System.out.println("つまり容疑者の体重が" + weight + "kgであった場合、その人は...\n");
 
                 // ここにif～else if～else文を入れる
+                if (weight > 80) {
+                        System.out.println("犯人ではありませんね。");
+                } else if (weight < 60) {
+                        System.out.println("犯人である可能性が低いですね。");
+                } else {
+                        System.out.println("犯人である可能性が高いですね。");
+                }
 
 
         }
