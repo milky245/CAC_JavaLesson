@@ -94,12 +94,18 @@ public class WarehouseManager {
 
 
 		//ここに入力処理を記述する
+		int arrLength = Integer.parseInt(br.readLine());
 
 
 		//ここに配列宣言を記述する
+		 String[] strArray = new String[arrLength];
 
 
 		//ここに値の入力+代入処理を記述する（for文）
+		for (int i = 0; i < strArray.length; i++) {
+			System.out.print("代入する値を入れてください、第 "+(i+1)+" 個＞");
+			strArray[i] = br.readLine();
+		}
 
 
 		System.out.println("\nYさん：");
@@ -112,6 +118,9 @@ public class WarehouseManager {
 
 
 		//ここに配列の値の出力処理を記述する（for文）
+		for (int i = 0; i < strArray.length; i++) {
+			System.out.println(strArray[i]);
+		}
 
 
 		System.out.println("です。\n");

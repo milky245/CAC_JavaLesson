@@ -63,9 +63,21 @@ public class WarehouseManager {
 
 
 		//ここに必要な配列の宣言を記述する。
+		int[][] containers = new int[3][5]; // 3つのコンテナ群、各コンテナ群は5箱
 
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
+		// 空き箱は0で表現し、空き箱である確率は1/4です。
+		for (int i = 0; i < containers.length; i++) {
+			for (int j = 0; j < containers[i].length; j++) {
+				if (Math.random() < 0.25) { // 1/4の確率で空き箱
+					containers[i][j] = 0;
+				} else {
+					containers[i][j] = (int) (Math.random() * 10) + 1;
+				}
+			}
+		}
+
 
 
 		System.out.println("E主任：");
@@ -78,23 +90,36 @@ public class WarehouseManager {
 
 
 		//ここに配列Cの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[0]);
 
 
 		System.out.print("\n\nD...");
 
 
 		//ここに配列Dの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[1]);
+
 
 
 		System.out.print("\n\nE...");
 
 
 		//ここに配列Eの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[2]);
 
 
 		System.out.println("\n\nです。\n");
 
 		System.out.println("E主任：");
 		System.out.println("ご苦労さまでした。");
+	}
+
+	public static void printContainer(int[] singleContainer) {
+		for (int j = 0; j < singleContainer.length; j++) {
+			System.out.print(singleContainer[j]);
+			if (j < singleContainer.length - 1) {
+				System.out.print(",");
+			}
+		}
 	}
 }

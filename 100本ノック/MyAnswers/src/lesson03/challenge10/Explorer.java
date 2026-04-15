@@ -82,6 +82,20 @@ public class Explorer {
 
 
                 //ここにfor文のネスト、if文を利用した処理を記述する。
+                int h=13;
+                int m=30;
+                for(;h<=16;h++){
+                        for(;m<60;m+=15){
+                                if(h==16 && m==30){
+                                        System.out.printf("隊長：\n%d:%02d 時間になったよ%n%n",h,m);
+                                        System.out.println("滝の水流が弱くなりました。\n");
+                                        System.out.println("やったー！宝物だー！");
+                                        break;
+                                }
+                                System.out.printf("隊長：\n%d:%02d 待ち遠しいな～%n%n",h,m);
+                        }
+                        m=0;
+                }
 
 
         }

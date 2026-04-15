@@ -44,6 +44,16 @@ public class WarehouseManager {
 
 
 		//ここに重複チェックおよび値の代入処理を記述する
+			// シャッフル
+			for (int i = 0; i < ABKosanArray.length; i++) {
+				ABKosanArray[i] = i + 1;
+			}
+			for (int i = ABKosanArray.length - 1; i > 0; i--) {
+				int j = (int) (Math.random() * (i + 1));
+				int temp = ABKosanArray[i];
+				ABKosanArray[i] = ABKosanArray[j];
+				ABKosanArray[j] = temp;
+			}
 
 
 		System.out.println("E主任：");
@@ -62,8 +72,9 @@ public class WarehouseManager {
 		System.out.println("\nです。\n");
 
 
-		//ここに昇順にソートする処理を記述する
-
+		//ソートする処理を記述する
+		//sort method from java.util.Arrays class
+		java.util.Arrays.sort(ABKosanArray);
 
 		System.out.println("小さい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
@@ -74,14 +85,10 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
-		//ここに降順にソートする処理を記述する
-
-
 		System.out.println("大きい順に並べ替えた後の状態は、");
-		for (int i = 0; i < ABKosanArray.length; i++) {
+		for (int i = ABKosanArray.length - 1; i >= 0; i--) {
 			System.out.print(ABKosanArray[i]);
-			if (i != (ABKosanArray.length - 1)) {
+			if (i != 0) {
 				System.out.print(",");
 			}
 		}

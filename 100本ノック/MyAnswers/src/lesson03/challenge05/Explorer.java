@@ -46,6 +46,7 @@ package lesson03.challenge05;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Explorer {
 
@@ -56,22 +57,22 @@ public class Explorer {
 
                 int fullHeight = 30;
                 int totalLength = 0;
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                Scanner scanner = new Scanner(System.in);
 
                 //ここに do{ を記述する。
+                do {
 
                         System.out.print("何メートルのロープを投げますか？（5～8）＞");
-                        String lengthStr = br.readLine();
-                        int length = Integer.parseInt(lengthStr);
+                        int length = scanner.nextInt();
 
                         System.out.println("\n隊長：");
-                        if(5 <= length && length <= 8){
+                        if (5 <= length && length <= 8) {
                                 totalLength += length;
                                 System.out.println(totalLength + "m登ったよ\n");
-                        } else{
+                        } else {
                                 System.out.println("ロープの長さを間違ってるよ\n");
                         }
-
+                } while (totalLength < fullHeight);
                 ///ここにwhile文を記述する。
 
                 System.out.println("登り切ったよ！");

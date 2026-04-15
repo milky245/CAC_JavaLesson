@@ -85,6 +85,46 @@ public class Explorer {
 
 
 		//ここにwhile文、if文を利用した処理を記述
+		while (i < 3) {
+			System.out.println("隊長：");
+			System.out.println("どの手を出して通り抜けますか");
+			System.out.println("（グー… 1 : チョキ… 2 : パー… 3）＞");
+			hand = Integer.parseInt(br.readLine());
+
+			if (hand < 1 || hand > 3) {
+				System.out.println("隊長：");
+				System.out.println("そんな手はありませんよ。もう一度入れてください。\n");
+				continue;
+			}
+
+			alligator = (int) (Math.random() * 3) + 1;
+			System.out.println("隊長：");
+			switch (alligator) {
+			case 1:
+				System.out.println("相手はグーワニでした。\n");
+				break;
+			case 2:
+				System.out.println("相手はチョキワニでした。\n");
+				break;
+			case 3:
+				System.out.println("相手はパーワニでした。\n");
+				break;
+			}
+
+
+
+			if ((hand == 1 && alligator == 2)
+					|| (hand == 2 && alligator == 3)
+					|| (hand == 3 && alligator == 1)) {
+				System.out.println((i + 1) + "匹目通り抜け成功！\n");
+				i++;
+			} else if (hand == alligator) {
+				System.out.println((i + 1) + "匹目通り抜け成功！\n");
+				i++;
+			} else {
+				break;
+			}
+		}
 
 
 		if (i == 3) {

@@ -34,13 +34,30 @@ public class WarehouseManager {
 
 
 		//ここに配列の宣言を記述する
-
-
-		int intputNum = 0;
-		boolean loopFlag = false;
+		//将1-5打乱按随机顺序放入数组
+		int[] bags = new int[5];
+		for (int i = 0; i < bags.length; i++) {
+			bags[i] = i + 1;
+		}
 
 
 		//ここに重複チェックおよび値の代入処理を記述する
+		// 簡単なシャッフル
+		for (int i = bags.length - 1; i > 0; i--) {
+			int j = (int) (Math.random() * (i + 1));
+			int temp = bags[i];
+			bags[i] = bags[j];
+			bags[j] = temp;
+		}
+
+		//test
+		for(int bag : bags) {
+			System.out.print(bag + " ");
+		}
+		System.out.println();
+
+		int intputNum = 0;
+		boolean loopFlag = false;
 
 
 		System.out.println("E主任：");
@@ -51,6 +68,13 @@ public class WarehouseManager {
 
 
 		//ここに要素の確認および何袋目かの出力処理を記述する
+		for (int i = 0; i < bags.length; i++) {
+			if (bags[i] == 5) {
+				intputNum = i + 1;
+				loopFlag = true;
+				break;
+			}
+		}
 
 
 		System.out.println("に入っていました。");

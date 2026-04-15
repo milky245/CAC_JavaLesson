@@ -44,7 +44,15 @@ public class WarehouseManager {
 
 
 		//ここに配列の宣言および値の代入処理を記述する（for文）
-
+		//1-5 の数値が入る袋が5袋あるとする
+		int[] bags = new int[5];
+		for (int i = 0; i < bags.length; i++) {
+			bags[i] = (int) (Math.random() * 5) + 1;
+		}
+		//test
+		for(int bag : bags) {
+			System.out.print(bag+" ");
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
@@ -56,6 +64,13 @@ public class WarehouseManager {
 
 
 		//ここに要素の確認および何袋目かの出力処理を記述する
+		//binary search で5を探す
+		for (int i = 0; i < bags.length; i++) {
+			if (bags[i] == 5) {
+				System.out.println((i + 1) + "袋目");
+				hitFlag = true;
+			}
+		}
 
 
 		if (hitFlag) {

@@ -41,6 +41,16 @@ public class WarehouseManager {
 
 
 		//ここに重複チェックおよび値の代入処理を記述する
+			// シャッフル
+			for (int i = 0; i < ABKosanArray.length; i++) {
+				ABKosanArray[i] = i + 1;
+			}
+			for (int i = ABKosanArray.length - 1; i > 0; i--) {
+				int j = (int) (Math.random() * (i + 1));
+				int temp = ABKosanArray[i];
+				ABKosanArray[i] = ABKosanArray[j];
+				ABKosanArray[j] = temp;
+			}
 
 
 		System.out.println("E主任：");
@@ -59,7 +69,31 @@ public class WarehouseManager {
 
 
 		//ここに値の入れ替え処理を記述する
+		int index1 = 0, index3 = 0, index2 = 0, index4 = 0;
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			switch (ABKosanArray[i]) {
+				case 1:
+					index1 = i;
+					break;
+				case 2:
+					index2 = i;
+					break;
+				case 3:
+					index3 = i;
+					break;
+				case 4:
+					index4 = i;
+					break;
+			}
+		}
+		// 値の入れ替え
+		int temp = ABKosanArray[index1];
+		ABKosanArray[index1] = ABKosanArray[index3];
+		ABKosanArray[index3] = temp;
 
+		temp = ABKosanArray[index2];
+		ABKosanArray[index2] = ABKosanArray[index4];
+		ABKosanArray[index4] = temp;
 
 		System.out.println("入れ替え後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
