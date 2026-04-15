@@ -130,7 +130,7 @@ public class WarehouseManager {
 
 	}
 
-	private static void shuffleArray(int[] array) {
+	public static void shuffleArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			int randomIndex = (int) (Math.random() * array.length);
 			int temp = array[i];

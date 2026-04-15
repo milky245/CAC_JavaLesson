@@ -65,6 +65,10 @@ public class WarehouseManager {
 
 
 		//配列の宣言および初期化処理を記述する
+		String[] greetingArray = new String[3];
+		greetingArray[0] = "へい！らっしゃい！！";
+		greetingArray[1] = "何にしますか！今日は活きのいいコハダが入ってますよ";
+		greetingArray[2] = "まいどあり！！またどうぞ";
 
 
 		System.out.println("Yさん：");
@@ -72,6 +76,10 @@ public class WarehouseManager {
 
 
 		//三つのあいさつパターンの出力処理を記述する
+		for (int i = 0; i < greetingArray.length; i++) {
+			System.out.println("あいさつパターン" + (i + 1)
+					+ "..." + "「" + greetingArray[i] + "」\n");
+		}
 
 
 		System.out.println("Yさん：");
@@ -81,6 +89,11 @@ public class WarehouseManager {
 
 
 		//入力処理および入力値の代入処理
+		System.out.println("どのパターンを変更しますか＞");
+		int changeIndex = Integer.parseInt(br.readLine()) - 1;
+		System.out.println("あいさつを吹き込んでください＞");
+		String changeGreeting = br.readLine();
+		greetingArray[changeIndex] = changeGreeting;
 
 
 		System.out.println("\nYさん：");
@@ -88,6 +101,10 @@ public class WarehouseManager {
 
 
 		//三つのあいさつパターンの出力処理を記述する
+		for (int i = 0; i < greetingArray.length; i++) {
+			System.out.println("あいさつパターン" + (i + 1)
+					+ "..." + "「" + greetingArray[i] + "」\n");
+		}
 
 
 		System.out.println("Yさん：");

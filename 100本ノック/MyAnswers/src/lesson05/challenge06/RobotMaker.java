@@ -40,6 +40,8 @@
 
 package lesson05.challenge06;
 
+import lesson05.challenge01.Robot;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -76,6 +78,8 @@ public class RobotMaker {
         //ここでRobotクラスのインスタンスを作り、
         //（インスタンス名はrobot）
         //makeOmeletを実行する。
+        Robot robot = new Robot();
+        robot.makeOmelet(eggNum, butterNum);
 
         System.out.println("Rさん：");
         System.out.println("わー、博士すごいですね！味もなかなか。\n");

@@ -55,6 +55,8 @@
 
 package lesson05.challenge08;
 
+import lesson05.challenge01.Robot;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -108,6 +110,13 @@ public class RobotMaker {
         //（インスタンス名はrobot）
         //makeEggDishesを実行する。
         //標準出力でメニューを表示する。
+        Robot robot = new Robot();
+        String menu = robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
+        if (menu != null) {
+            System.out.println("【" + menu + "】が出来ました。");
+        } else {
+            System.out.println("何も作れません。");
+        }
     }
 
 }

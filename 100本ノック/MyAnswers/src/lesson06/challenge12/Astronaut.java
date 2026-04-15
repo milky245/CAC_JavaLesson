@@ -34,6 +34,39 @@ import java.io.InputStreamReader;
 
 
 //ここにOmegalianクラスを記述する
+class Omegalian {
+    private String item;
+
+    public void setItem(String item) {
+        this.item = item;
+        // Check if the last character is a digit
+        if (!item.isEmpty() && Character.isDigit(item.charAt(item.length() - 1))) {
+            char lastChar = item.charAt(item.length() - 1);
+            String englishNumber = changeLastChar(lastChar);
+            this.item = item.substring(0, item.length() - 1) + englishNumber;
+        }
+    }
+
+    private String changeLastChar(char ch) {
+        switch (ch) {
+            case '0': return "zero";
+            case '1': return "one";
+            case '2': return "two";
+            case '3': return "three";
+            case '4': return "four";
+            case '5': return "five";
+            case '6': return "six";
+            case '7': return "seven";
+            case '8': return "eight";
+            case '9': return "nine";
+            default: return "";
+        }
+    }
+
+    public String getItem() {
+        return item;
+    }
+}
 
 
 public class Astronaut {
@@ -46,16 +79,12 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
-
-
-        String item = null;
-
-
-        //ここに適切な処理を記述する
+        Omegalian omegalian = new Omegalian();
+        omegalian.setItem(present);
 
 
         System.out.println("\nΩ星人：");
-        System.out.println("えっ！" + item + "をくれるオメガか！");
+        System.out.println("えっ！" + omegalian.getItem() + "をくれるオメガか！");
         System.out.println("ありがとうオメガ。");
     }
 }

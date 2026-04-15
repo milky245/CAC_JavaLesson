@@ -41,7 +41,24 @@ import java.io.InputStreamReader;
 
 
 //ここにGammalianクラスを記述する
+class Gammalian {
+    private String item;
+    private boolean isGood;
 
+    public void setItem(String item) {
+        this.item = item;
+        // Check if the string contains any digit
+        this.isGood = item.matches(".*\\d.*");
+    }
+
+    public boolean isGood() {
+        return isGood;
+    }
+
+    public String getItem() {
+        return item;
+    }
+}
 
 public class Astronaut {
 
@@ -52,17 +69,12 @@ public class Astronaut {
         String present = br.readLine();
 
 
-        //ここに適切な処理を記述する
-
-
-        boolean isGood = false;
-
-
-        //ここに適切な処理を記述する
+        Gammalian gammalian = new Gammalian();
+        gammalian.setItem(present);
 
 
         System.out.println("\nγ星人：");
-        if(isGood){
+        if(gammalian.isGood()){
              System.out.println("こんな良いものをもらっていいガンマか！");
              System.out.println("ゆっくりしていくガンマ。");
         } else{

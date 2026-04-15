@@ -33,6 +33,21 @@ import java.io.InputStreamReader;
 
 
 //ここにBetalianクラスを記述する
+class Betalian {
+    private String item;
+
+    public void setItem(String item) {
+        if (item.length() > 5) {
+            this.item = item.substring(0, 5);
+        } else {
+            this.item = item;
+        }
+    }
+
+    public String getItem() {
+        return item;
+    }
+}
 
 
 public class Astronaut {
@@ -45,9 +60,11 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
+        Betalian betalian = new Betalian();
+        betalian.setItem(present);
 
 
-        String item = null;
+        //String item = null;
 
 
         //ここに適切な処理を記述する
@@ -55,6 +72,6 @@ public class Astronaut {
 
         System.out.println("\nβ星人：");
         System.out.println("ありがとうベータ！");
-        System.out.println("この" + item + "大事にするベータ。");
+        System.out.println("この" + betalian.getItem() + "大事にするベータ。");
     }
 }

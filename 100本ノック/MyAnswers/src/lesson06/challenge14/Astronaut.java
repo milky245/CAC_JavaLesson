@@ -46,6 +46,22 @@ import java.io.InputStreamReader;
 
 
 //ここにSpaceshipクラスを記述する
+class Spaceship {
+    private double fuel;
+
+    public void setFuel(double fuel) {
+        this.fuel = fuel;
+    }
+
+    public double getFuel() {
+        return fuel;
+    }
+
+    //use math.max to compare fuel and lightYear
+    public boolean compareFuel(double fuelNum, double lightYear) {
+        return Math.max(fuelNum, lightYear) == fuelNum;
+    }
+}
 
 
 public class Astronaut {
@@ -67,10 +83,11 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
-
+        Spaceship spaceship = new Spaceship();
+        spaceship.setFuel(fuelNum);
 
         boolean isCheck = false;
-
+        isCheck = spaceship.compareFuel(spaceship.getFuel(), lightYear);
 
         //ここに適切な処理を記述する
 

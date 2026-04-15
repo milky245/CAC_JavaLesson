@@ -19,17 +19,21 @@
 package lesson06.challenge01;
 
 class Spaceship {
-    int air;
+    //let フィールド Spaceship.air は不可視です
+    private int air;
 }
 
 public class Astronaut {
 
     public static void main(String[] args) {
 
-        Spaceship spaceship = new Spaceship();
-
-        spaceship.air = -10;
-
+//        Spaceship spaceship = new Spaceship();
+//        //try to access the field Spaceship.air and catch the exception
+//        try {
+//            spaceship.air = -10;
+//        } catch (Exception e) {
+//            System.out.println("エラーが発生しました。フィールド Spaceship.air は不可視です");
+//        }
     }
 
 }

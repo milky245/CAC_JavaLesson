@@ -31,6 +31,8 @@ package lesson05.challenge07;
 //メソッド名：getWater(引数なし、戻り値int、
 //現在の水量(フィールドwaterの値)を戻り値として返す)
 
+import lesson05.challenge01.Robot;
+
 public class RobotMaker {
 
     public static void main(String[] args) {
@@ -46,8 +48,11 @@ public class RobotMaker {
 
         //ここでRobotクラスのインスタンスを作り、
         //（インスタンス名はrobot）
-        //randomWaterを実行する。
+        //setRandomWaterを実行する。
         //getWaterを実行する。
+        Robot robot = new Robot();
+        robot.setRandomWater();
+        water = robot.getWater();
 
         System.out.println("「ガ～ピィーガ～、ゲンザイノスイリョウハ" + water + "リットルデス。」\n");
 

@@ -48,6 +48,8 @@
 
 package lesson05.challenge09;
 
+import lesson05.challenge01.Robot;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -98,6 +100,9 @@ public class RobotMaker {
         //（インスタンス名はrobot）
         //makeEggDishesを実行する。
         //標準出力でメニューを表示する。
+        Robot robot = new Robot();
+        String menu = robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
+        System.out.println(menu + "が出来ました。\n");
 
 
         System.out.println("\nあとかたづけをします。\n");
@@ -111,6 +116,8 @@ public class RobotMaker {
         //ここでClearRobotクラスのインスタンスを作り、
         //（インスタンス名はclearRobot）
         //clearTableを実行する。
+        ClearRobot clearRobot = new ClearRobot();
+        clearRobot.clearTable(ingredients);
 
 
         System.out.println("小麦粉  ：" + ingredients[0] + "g");

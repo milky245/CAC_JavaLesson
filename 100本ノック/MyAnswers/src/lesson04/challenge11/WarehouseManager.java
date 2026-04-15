@@ -68,9 +68,19 @@ public class WarehouseManager {
 
 
 		//ここに必要な配列の宣言を記述する。
+		int[][] containers = new int[3][5];
 
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
+		for (int i = 0; i < containers.length; i++) {
+			for (int j = 0; j < containers[i].length; j++) {
+				if (Math.random() < 0.25) { // 1/4の確率で空き箱
+					containers[i][j] = 0;
+				} else {
+					containers[i][j] = (int) (Math.random() * 10) + 1;
+				}
+			}
+		}
 
 
 		System.out.println("E主任：");
@@ -83,25 +93,53 @@ public class WarehouseManager {
 
 
 		//ここに配列Cの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[0]);
 
 
 		System.out.print("\n\nD...");
 
 
 		//ここに配列Dの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[1]);
 
 
 		System.out.print("\n\nE...");
 
 
 		//ここに配列Eの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[2]);
 
 
 		System.out.println("\n\nでした。直してきます...\n");
 
 
 		//ここに詰め替え処理を記述する
-
+		// 3行の配列の0を、各行の末尾ではなく、全体の2次元配列の末尾に移動させる。
+		//まず、全ての要素を1次元配列にコピーする。
+		int[] allBoxes = new int[containers.length * containers[0].length];
+		int index = 0;
+		for (int i = 0; i < containers.length; i++) {
+			for (int j = 0; j < containers[i].length; j++) {
+				allBoxes[index++] = containers[i][j];
+			}
+		}
+		// 将非零元素移到前面，零元素移到后面
+		int nonZeroIndex = 0;
+		for (int i = 0; i < allBoxes.length; i++) {
+			if (allBoxes[i] != 0) {
+				allBoxes[nonZeroIndex++] = allBoxes[i];
+			}
+		}
+		while (nonZeroIndex < allBoxes.length) {
+			allBoxes[nonZeroIndex++] = 0;
+		}
+		//　最後の要素から詰め替えるため、1次元配列の先頭から順に2次元配列にコピーする。
+		index = 0;
+		for (int i = 0; i < containers.length; i++) {
+			for (int j = 0; j < containers[i].length; j++) {
+				containers[i][j] = allBoxes[index++];
+			}
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
@@ -110,23 +148,35 @@ public class WarehouseManager {
 
 
 		//ここに配列Cの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[0]);
 
 
 		System.out.print("\n\nD...");
 
 
 		//ここに配列Dの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[1]);
 
 
 		System.out.print("\n\nE...");
 
 
 		//ここに配列Eの要素をすべて出力する処理を記述する。
+		WarehouseManager.printContainer(containers[2]);
 
 
 		System.out.println("\n\nになりました。\n");
 
 		System.out.println("E主任：");
 		System.out.println("ご苦労さまでした。");
+	}
+
+	public static void printContainer(int[] singleContainer) {
+		for (int j = 0; j < singleContainer.length; j++) {
+			System.out.print(singleContainer[j]);
+			if (j < singleContainer.length - 1) {
+				System.out.print(",");
+			}
+		}
 	}
 }

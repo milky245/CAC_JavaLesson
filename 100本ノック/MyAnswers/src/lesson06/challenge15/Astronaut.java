@@ -38,9 +38,25 @@ import java.io.InputStreamReader;
 
 
 //ここにSpaceshipクラスを記述する
+class Spaceship {
+    private int damage;
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+}
 
 
 //ここにDockクラスを記述する
+class Dock {
+    public void repairShip(Spaceship ship) {
+        ship.setDamage(0);
+    }
+}
 
 
 public class Astronaut {
@@ -60,6 +76,9 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
+        Spaceship spaceship = new Spaceship();
+        spaceship.setDamage(damage);
+
 
 
         System.out.println("\n宇宙飛行士：");
@@ -67,6 +86,9 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する
+        Dock dock = new Dock();
+        dock.repairShip(spaceship);
+        damage = spaceship.getDamage();
 
 
         System.out.println("現在のダメージ：" + damage);

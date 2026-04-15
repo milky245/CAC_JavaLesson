@@ -42,6 +42,8 @@ package lesson05.challenge04;
 //メソッドpumpWaterを改修し、randomWater()を呼び出し、
 //「水を【※フィールドwaterの値】リットル出します」に出力を変更する
 
+import lesson05.challenge01.Robot;
+
 public class RobotMaker {
 
     public static void main(String[] args) {
@@ -62,6 +64,8 @@ public class RobotMaker {
         //ここでRobotクラスのインスタンスを作り、
         //（インスタンス名はrobot）
         //pumpWaterを実行する。
+            Robot robot = new Robot();
+            robot.randomWater();
 
         System.out.println("G博士：");
         System.out.println("......確かに出来とる。\n");

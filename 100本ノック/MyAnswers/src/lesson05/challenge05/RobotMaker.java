@@ -29,6 +29,8 @@
 
 package lesson05.challenge05;
 
+import lesson05.challenge01.Robot;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -60,6 +62,9 @@ public class RobotMaker {
         //（インスタンス名はrobot）
         //setWaterを実行する。
         //pumpWaterを実行する。
+        Robot robot = new Robot();
+        robot.setWater(water);
+        robot.pumpWater();
     }
 
 }

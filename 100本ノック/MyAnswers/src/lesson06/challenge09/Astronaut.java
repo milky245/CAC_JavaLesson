@@ -52,8 +52,22 @@ package lesson06.challenge09;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 //ここにAlphalianクラスを記述する
+class Alphalian {
+    private String name;
+
+    public Alphalian() {
+        //ランダムにA～Eの名前を決定する
+        char randomChar = (char) ('A' + (int) (Math.random() * 5));
+        this.name = String.valueOf(randomChar);
+    }
+
+    public String getName() {
+        return name;
+    }
+}
 
 public class Astronaut {
 
@@ -63,6 +77,21 @@ public class Astronaut {
 
 
         //ここに適切な処理を記述する。
+        Scanner scanner = new Scanner(System.in);
+        Alphalian[] alphas = new Alphalian[10];
+        for (int i = 0; i < alphas.length; i++) {
+            alphas[i] = new Alphalian();
+            System.out.println("名前を入れてください（A～E）＞");
+            String input = scanner.nextLine();
+            System.out.println("\nα星人：" + (i + 1) + "人目");
+            if (input.equals(alphas[i].getName())) {
+                hitFlag = true;
+                break;
+            } else {
+                System.out.println("おら、そんな名前じゃないアルファ！");
+                System.out.println(alphas[i].getName() + "が正解だアルファ！");
+            }
+        }
 
 
         if (hitFlag) {

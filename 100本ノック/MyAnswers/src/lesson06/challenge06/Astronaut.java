@@ -15,8 +15,12 @@ class Spaceship {
     private int air;
     private int fuel;
 
-    //このコンストラクタを変更する。
-    public Spaceship() {
+    //このコンストラクタを変更する。アクセス修飾子を変更して、引数なしで宇宙船オブジェクトを作成することが出来ないようにしてください。
+//    public Spaceship() {
+//        this.air = 100;
+//        this.fuel = 100;
+//    }
+    private Spaceship() {
         this.air = 100;
         this.fuel = 100;
     }

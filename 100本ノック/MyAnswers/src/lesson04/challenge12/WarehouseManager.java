@@ -56,32 +56,48 @@
 
 package lesson04.challenge12;
 
+import static lesson04.challenge08.WarehouseManager.shuffleArray;
+
 public class WarehouseManager {
 
 	public static void main(String[] args) {
 
 		int[] wonderfulArray = new int[5];
 
-		int insertNum = 0;
-		int insertIndex = 0;
-		boolean loopFlag;
-		do {
-			loopFlag = false;
-			insertNum = (int) (Math.random() * 10) % 5 + 1;
-			for (int i = 0; i < wonderfulArray.length; i++) {
-				if (wonderfulArray[i] == insertNum) {
-					loopFlag = true;
-					break;
-				}
-			}
-			if (!loopFlag) {
-				wonderfulArray[insertIndex] = insertNum;
-				insertIndex++;
-			}
-		} while (loopFlag || insertIndex < 5);
+//		int insertNum = 0;
+//		int insertIndex = 0;
+//		boolean loopFlag;
+		//ここのコードはコンプレックシティが高いので、改めてかきます
+//		do {
+//			loopFlag = false;
+//			insertNum = (int) (Math.random() * 10) % 5 + 1;
+//			for (int i = 0; i < wonderfulArray.length; i++) {
+//				if (wonderfulArray[i] == insertNum) {
+//					loopFlag = true;
+//					break;
+//				}
+//			}
+//			if (!loopFlag) {
+//				wonderfulArray[insertIndex] = insertNum;
+//				insertIndex++;
+//			}
+//		} while (loopFlag || insertIndex < 5);
+//
+//		int clearIndex = (int) (Math.random() * 10) % 5;
+//		wonderfulArray[clearIndex] = 0;
+		//ここまでのコードはコンプレックシティが高いので、改めてかきます
 
+		//まず1-5の数値を重複せずに挿入する処理を記述する
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			wonderfulArray[i] = i + 1;;
+		}
+		shuffleArray(wonderfulArray);
+
+		//挿入した数値のどれかを0に置き換える処理
 		int clearIndex = (int) (Math.random() * 10) % 5;
+		// int insertOriginalNum = wonderfulArray[clearIndex];
 		wonderfulArray[clearIndex] = 0;
+
 
 		System.out.println("E主任：");
 		System.out.println("ふしぎなコンテナの件、お願いします。\n");
@@ -101,6 +117,32 @@ public class WarehouseManager {
 
 
 		//ここに適切な値の挿入処理を記述する
+		//まず0の位置を特定し、その位置は元々の数値がどれだったかを特定する、最後に挿入する
+		int zeroIndex = 0;
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {
+				zeroIndex = i;
+				break;
+			}
+		}
+		int insertNum = 0;
+		boolean existFlag = false;
+		for (int i = 1; i <= 5; i++) {
+			existFlag = false;
+			for (int j = 0; j < wonderfulArray.length; j++) {
+				if (wonderfulArray[j] == i) {
+					existFlag = true;
+					break;
+				}
+			}
+			if (!existFlag) {
+				insertNum = i;
+				break;
+			}
+		}
+		wonderfulArray[zeroIndex] = insertNum;
+
+
 
 
 		System.out.println("Yさん：");
