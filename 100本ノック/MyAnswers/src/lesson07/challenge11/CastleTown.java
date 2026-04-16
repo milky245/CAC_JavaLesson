@@ -25,13 +25,47 @@ package lesson07.challenge11;
 
 
 //ここにSamuraiクラスを記述
+abstract class Samurai {
+
+    protected String name;
+
+    void fight() {
+        System.out.println("戦うよ～。");
+    }
+
+    abstract void work();
+
+}
 
 
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+
+    Retainer() {
+        this.name = "藩士";
+    }
+
+    @Override
+    void work() {
+        System.out.println("年貢を取り立てるよ～");
+    }
+
+}
 
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
 
+    Ronin() {
+        this.name = "浪人";
+    }
+
+    @Override
+    void work() {
+        System.out.println("傘張るよ～");
+    }
+
+}
 
 public class CastleTown {
 
@@ -40,6 +74,15 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
+        Samurai[] samurais = new Samurai[5];
+        for (int i = 0; i < samurais.length; i++) {
+            if (Math.random() < 0.5) {
+                samurais[i] = new Retainer();
+            }
+            else {
+                samurais[i] = new Ronin();
+            }
+        }
 
 
         System.out.println("詰め終わりました。\n");
@@ -51,6 +94,16 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
+        // instanceof演算子を利用
+        for (Samurai samurai : samurais) {
+            if (samurai instanceof Retainer) {
+                retainerCount++;
+            }
+            else if (samurai instanceof Ronin) {
+                roninCount++;
+            }
+        }
+
 
 
         System.out.println("藩士：" + retainerCount + "人");

@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class Question07_1 {
 
-	//ここは、商品登録、商品一覧の機能
+	//商品登録、商品一覧の機能
 	//複数の商品、及び商品に紐づく単価（価格）を登録し、登録した商品を一覧表示する機能を実装する。
 	public static void main(String[] args) throws IOException {
 

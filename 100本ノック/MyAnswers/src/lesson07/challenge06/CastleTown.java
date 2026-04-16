@@ -21,6 +21,7 @@
  *
  */
 
+
 package lesson07.challenge06;
 
 class Samurai {
@@ -37,9 +38,34 @@ class Samurai {
 
 
 //ここにUltimateSwordsmanクラスを記述
+final class UltimateSwordsman extends Samurai {
+
+    void fight() {
+        System.out.println("究極の剣豪は戦うよ～。");
+    }
+
+    void work() {
+        System.out.println("究極の剣豪は何かして働くよ～");
+    }
+
+}
 
 
 //ここにEasySwordsmanクラスを記述
+//comment out the code below
+// to see the compilation error when trying to extend a final class
+
+//class EasySwordsman extends UltimateSwordsman {
+//
+//    void fight() {
+//        System.out.println("ふつうの剣豪は戦うよ～。");
+//    }
+//
+//    void work() {
+//        System.out.println("ふつうの剣豪は何かして働くよ～");
+//    }
+//
+//}
 
 
 public class CastleTown {
@@ -49,6 +75,10 @@ public class CastleTown {
 
 
        //ここにEasySwordsmanクラスのオブジェクト生成処理を記述
+
+//        EasySwordsman easySwordsman = new EasySwordsman();
+//        easySwordsman.fight();
+//        easySwordsman.work();
 
 
     }

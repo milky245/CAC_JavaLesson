@@ -45,9 +45,33 @@ class Samurai {
 
 
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+
+    Retainer() {
+        this.name = "藩士";
+    }
+
+    @Override
+    void work() {
+        System.out.println("藩士は働くよ～");
+    }
+
+}
 
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
+
+    Ronin() {
+        this.name = "浪人";
+    }
+
+    @Override
+    void work() {
+        System.out.println("浪人は働くよ～");
+    }
+
+}
 
 
 public class CastleTown {
@@ -57,6 +81,17 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
+        //要素数5の侍クラスの配列を用意し
+
+        Samurai[] samurais = new Samurai[5];
+        for (int i = 0; i < samurais.length; i++) {
+            if (Math.random() < 0.5) {
+                samurais[i] = new Retainer();
+            }
+            else {
+                samurais[i] = new Ronin();
+            }
+        }
 
 
         System.out.println("詰め終わりました。\n");
@@ -64,6 +99,9 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
+        for (Samurai samurai : samurais) {
+            System.out.println(samurai.getClass());
+        }
 
 
     }

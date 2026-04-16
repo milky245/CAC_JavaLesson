@@ -29,6 +29,12 @@ class Samurai {
 
 
     //ここにフィールドnameを記述
+    protected String name;
+
+        //ここにコンストラクタを記述
+    public Samurai(String name) {
+        this.name = name;
+    }
 
 
     void fight() {
@@ -43,9 +49,33 @@ class Samurai {
 
 
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
+
+    public Retainer(String name) {
+        super(name);
+    }
+
+    @Override
+    public String toString() {
+        return "拙者は○△□藩士、" + name + "ともうす。";
+    }
+
+}
 
 
 //ここにRoninクラスを記述
+class Ronin extends Samurai {
+
+    public Ronin(String name) {
+        super(name);
+    }
+
+    @Override
+    public String toString() {
+        return "拙者は武州○△□村の浪人、" + name + "ともうす。";
+    }
+
+}
 
 
 public class CastleTown {
@@ -55,12 +85,16 @@ public class CastleTown {
 
 
         //ここに適切な処理を記述
+        Retainer retainer = new Retainer("テスト太郎");
+        System.out.println(retainer.toString());
 
 
         System.out.println("\n浪人クラスのtoString()メソッドを確認します。\n");
 
 
         //ここに適切な処理を記述
+        Ronin ronin = new Ronin("テスト兵衛");
+        System.out.println(ronin.toString());
 
 
     }
