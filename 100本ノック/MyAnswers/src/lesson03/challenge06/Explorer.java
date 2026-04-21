@@ -109,6 +109,21 @@ public class Explorer {
         }
         System.out.println("今回トラの深い眠りの時間は" + deepSleepTime + "時間後でした。");
 
+        /*
+        if (i != 3) {
+        --処理--
+            if( -入力の変数名- == "1" ) {
+                --処理--
+            }
+            else{
+            --処理--
+            }
+        }
+        else {
+        --処理--
+        }
+         */
+
 
         if (deepSleepTime == goTime) {
             System.out.println("\n隊長：");
