@@ -7,7 +7,13 @@ public class ClearRobot {
     //クラス名：ClearRobot
     //メソッド名：clearTable(引数int[] ingredients
     //戻り値void、渡された配列を0でクリアする)
+//    public void clearTable(int[] ingredients) {
+//        Arrays.fill(ingredients, 0);
+//    }
+
     public void clearTable(int[] ingredients) {
-        Arrays.fill(ingredients, 0);
+        for (int i = 0; i < ingredients.length; i++) {
+            ingredients[i] = 0;
+        }
     }
 }

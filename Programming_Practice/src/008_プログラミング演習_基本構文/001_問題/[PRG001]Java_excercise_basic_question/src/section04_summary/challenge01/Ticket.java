@@ -63,9 +63,19 @@
 
 package section04_summary.challenge01;
 
-public class TicketVendingMachine {
+public class Ticket {
+	private static int seqNo = 1; // シリアルナンバーの初期値
+	private String productName; // 商品名
+	private int ticketNo; // チケット番号
 
-	public static void main(String[] args) {
-
+	public Ticket(String productName) {
+		this.productName = productName;
+		this.ticketNo = seqNo++; // チケット番号をシリアルナンバーから取得し、次のシリアルナンバーに進める
 	}
+
+	@Override
+	public String toString() {
+		return productName + "[" + ticketNo + "]";
+	}
+
 }

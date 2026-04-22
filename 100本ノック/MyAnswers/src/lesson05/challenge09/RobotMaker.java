@@ -126,6 +126,8 @@ public class RobotMaker {
         System.out.println("バター  ：" + ingredients[3] + "g");
 
         System.out.println("\nきれいになりました。");
+
+
     }
 
 }
