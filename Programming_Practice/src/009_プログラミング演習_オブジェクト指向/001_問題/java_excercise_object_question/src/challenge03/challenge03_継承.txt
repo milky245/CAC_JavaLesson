@@ -1,0 +1,16 @@
+challenge03（継承、ポリモフィズム）
+1,以下のクラスが提供されます。
+	まずは各クラスの内容をよく読んでください。
+	Gladiator.java
+	Human.java
+	Protect.java
+	Weapon.java
+	Main.java
+2,提供されたクラスのメソッドを組み合わせて、Main.javaのmeinメソッドを構築してください。
+	mainメソッド内でGladiatorクラスを2つインスタンス化し、battleメソッドで戦わせます。
+	最後にHPが残っている方を勝ちとし、introduceメソッドを使って自己紹介させてください。
+	ただし、下記のメソッドが完全ではありません。内容を分析して修正してください。
+		Gladiator.java（コンストラクタ）
+		Main.java（battleメソッド）
+3,他に必要だと思ったフィールドやメソッドを追加しても構いません。
+	ただし、Human.javaは修正しないでください。

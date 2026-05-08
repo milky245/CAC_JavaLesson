@@ -51,12 +51,12 @@ class Retainer extends Samurai implements IChiefTreasurer, ICelebrity {
         System.out.println("給料をもらうよ～。");
     }
 
-    @Override
+    //@Override
     public void figure() {
         System.out.println("藩の資産を計算するよ～。");
     }
 
-    @Override
+    //@Override
     public void learn() {
         System.out.println("茶道を嗜むよ～。");
     }

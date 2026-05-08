@@ -25,7 +25,44 @@ package section04_summary.challenge05;
 
 public class BubbleSort {
 
+	//method
+	public static void bubbleSort(int[] array) {
+		//bubble sort
+		for (int i = 0; i < array.length - 1; i++) {
+			for (int j = 0; j < array.length - 1 - i; j++) {
+				if (array[j] > array[j + 1]) {
+					//swap array[j] and array[j + 1]
+					int temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
+				}
+			}
+		}
+	}
+
 	public static void main(String[] args) {
+
+
+		//generate 10 random numbers between 1 and 100
+		int[] array = new int[10];
+		for (int i = 0; i < array.length; i++) {
+			array[i] = (int) (Math.random() * 100) + 1;
+		}
+		//print the array before sorting
+		System.out.println("ソート前：");
+        for (int j : array) {
+            System.out.print(j + " ");
+        }
+		System.out.println();
+		bubbleSort(array);
+
+
+		//print the array after sorting
+		System.out.println("ソート後：");
+		for (int j : array) {
+			System.out.print(j + " ");
+		}
+		System.out.println();
 
 	}
 

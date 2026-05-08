@@ -30,11 +30,34 @@ public class UnreadableNumbers {
 		// 1～100のうち、ランダムで1つの数字を準備（読まれなかった数字）
 		Random rand = new Random();
 		int unreadableNum = rand.nextInt(100) + 1;
+		//System.out.println(unreadableNum);
 
 		/*
 		 * ここにコードを追記
 		 *
 		 */
+		 // 1～100の数字をランダムな順番で読み上げる
+		int[] arr = new int[99];
+		System.out.println("数字を読み上げます：");
+		for (int i = 0; i < 99; i++){
+			if ((i + 1) == unreadableNum){
+				continue;
+			}
+			arr[i] = i + 1;
+			//System.out.printf("%d ", arr[i]);
+		}
+		// Fisher–Yates 洗牌
+		for (int i = arr.length - 1; i > 0; i--) {
+			int j = rand.nextInt(i + 1);
+
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}
+		for (int num : arr) {
+			System.out.printf("%d ", num);
+		}
+		System.out.println();
 
 		// 回答を入力する
 		System.out.print("読まれなかった数字は＞");

@@ -52,7 +52,7 @@ class Magistrate extends Retainer implements IChiefTreasurer {
         System.out.println("判決を下すよ～。");
     }
 
-    @Override
+    //@Override
     public void figure() {
         System.out.println("藩の資産を計算するよ～。");
     }

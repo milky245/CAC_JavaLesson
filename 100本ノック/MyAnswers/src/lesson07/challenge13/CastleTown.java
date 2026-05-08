@@ -25,7 +25,7 @@ package lesson07.challenge13;
 //ここにICelebrityインターフェースを記述
 interface ICelebrity {
 
-    abstract void learn();
+    void learn();
 
 }
 
@@ -47,7 +47,7 @@ class Retainer extends Samurai implements ICelebrity {
         System.out.println("給料をもらうよ～。");
     }
 
-    @Override
+
     public void learn() {
         System.out.println("茶道を嗜むよ～。");
     }
@@ -57,7 +57,7 @@ class Retainer extends Samurai implements ICelebrity {
 //ここにRoninクラスを記述
 class Ronin extends Samurai implements ICelebrity {
 
-    @Override
+
     public void learn() {
         System.out.println("塾を開くよ～。");
     }
