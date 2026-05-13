@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>画像の学習</title>
+    </head>
+    <body>
+        <h1>画像の表示（絶対パスと相対パス）</h1>
+        <p>
+            imgタグを使って画像を表示します。閉じタグがない点に注意しましょう。
+        </p>
+
+        <h2>1. 外部サイトの画像を表示する（絶対パス）</h2>
+        <p>
+            「https://picsum.photos/400/300」URLを指定して、インターネット上にある画像を表示します。
+        </p>
+        <img src="https://picsum.photos/400/300" alt="ランダムに生成された風景のサンプル画像" />
+
+        <hr />
+
+        <h2>2. ローカルの画像を表示する（相対パス）</h2>
+        <p>
+            このHTMLファイルから見た画像ファイルの位置（パス）を指定して表示します。<br />
+            ここでは、同じ階層にある「images」フォルダの中の「sample.jpg」を指定しています。
+        </p>
+
+        <img src="images/sample.png" alt="ローカルに保存したサンプル画像" />
+    </body>
+</html>

@@ -1,0 +1,16 @@
+CREATE TABLE deptApp( 
+deptno VARCHAR2(2) PRIMARY KEY, 
+dname VARCHAR2(50) NOT NULL, 
+loc VARCHAR2(100) );
+
+
+CREATE TABLE empApp ( 
+empno VARCHAR2(3) PRIMARY KEY, 
+ename VARCHAR2(20) NOT NULL, 
+superior VARCHAR2(20), 
+hiredate DATE NOT NULL, 
+sal NUMBER NOT NULL, 
+job VARCHAR2(30), 
+deptno VARCHAR2(2), 
+CONSTRAINT app_deptno FOREIGN KEY(deptno) 
+REFERENCES deptApp(deptno) );

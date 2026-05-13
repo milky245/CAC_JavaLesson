@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML 语言编程学习主页</title>
+	<style>
+		:root {
+			--bg: #0f172a;
+			--panel: #111827;
+			--card: #1f2937;
+			--text: #e5e7eb;
+			--muted: #9ca3af;
+			--accent: #38bdf8;
+			--accent-2: #22c55e;
+			--border: #374151;
+		}
+		* { box-sizing: border-box; }
+		body {
+			margin: 0;
+			font-family: "Microsoft YaHei", Arial, sans-serif;
+			background: linear-gradient(180deg, #0b1120 0%, #111827 100%);
+			color: var(--text);
+			line-height: 1.7;
+		}
+		header {
+			padding: 48px 20px 28px;
+			text-align: center;
+			background: radial-gradient(circle at top, rgba(56,189,248,.22), transparent 38%);
+			border-bottom: 1px solid var(--border);
+		}
+		header h1 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.4rem); }
+		header p { margin: 0 auto; max-width: 900px; color: var(--muted); }
+		nav {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 12px;
+			margin-top: 24px;
+		}
+		nav a, .btn {
+			display: inline-block;
+			padding: 10px 16px;
+			border-radius: 999px;
+			text-decoration: none;
+			color: white;
+			background: rgba(56,189,248,.18);
+			border: 1px solid rgba(56,189,248,.35);
+			transition: .2s ease;
+		}
+		nav a:hover, .btn:hover { transform: translateY(-2px); background: rgba(56,189,248,.3); }
+		main { width: min(1200px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 64px; }
+		section {
+			margin: 28px 0;
+			padding: 24px;
+			background: rgba(17,24,39,.88);
+			border: 1px solid var(--border);
+			border-radius: 20px;
+			box-shadow: 0 12px 36px rgba(0,0,0,.22);
+		}
+		section h2 { margin-top: 0; color: #7dd3fc; }
+		.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+		.card {
+			padding: 18px;
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+		}
+		pre {
+			overflow: auto;
+			padding: 16px;
+			background: #0b1020;
+			border-radius: 14px;
+			border: 1px solid #243041;
+			color: #cbd5e1;
+		}
+		code { font-family: Consolas, Monaco, monospace; }
+		.demo-box {
+			padding: 16px;
+			border-radius: 14px;
+			background: linear-gradient(135deg, rgba(34,197,94,.15), rgba(56,189,248,.14));
+			border: 1px dashed rgba(125,211,252,.45);
+		}
+		.colorful { color: #f472b6; font-weight: 700; }
+		.underline { text-decoration: underline; text-decoration-color: #22c55e; }
+		.shadow { text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+		.layout-demo { display: flex; gap: 12px; flex-wrap: wrap; }
+		.layout-demo > div {
+			flex: 1 1 160px;
+			min-height: 88px;
+			display: grid;
+			place-items: center;
+			border-radius: 14px;
+			background: rgba(59,130,246,.16);
+			border: 1px solid rgba(96,165,250,.35);
+		}
+		img { max-width: 100%; border-radius: 14px; display: block; }
+		footer { text-align: center; color: var(--muted); padding: 18px 0 40px; }
+		.tip { color: #a7f3d0; }
+		.table-wrap { overflow-x: auto; }
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			background: #0b1020;
+			border-radius: 12px;
+			overflow: hidden;
+		}
+		th, td { padding: 12px; border: 1px solid #223047; text-align: left; }
+		th { background: #132238; }
+	</style>
+</head>
+<body>
+	<header>
+		<h1>HTML 语言编程学习主页</h1>
+		<p>这里整理了常见 HTML 学习内容：文本格式、装饰方法、排版布局、图片音频等媒体插入、链接跳转以及高级操作。每个模块都包含代码样例和效果展示，适合做入门参考页。</p>
+		<nav>
+			<a href="#text">文本格式</a>
+			<a href="#style">装饰方法</a>
+			<a href="#layout">排版方法</a>
+			<a href="#media">媒体插入</a>
+			<a href="#link">链接跳转</a>
+			<a href="#advanced">高级操作</a>
+		</nav>
+	</header>
+
+	<main>
+		<section id="text">
+			<h2>一、文本格式</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>代码样例</h3>
+					<pre><code>&lt;h1&gt;一级标题&lt;/h1&gt;
+&lt;p&gt;这是普通段落，&lt;strong&gt;加粗&lt;/strong&gt;、&lt;em&gt;斜体&lt;/em&gt;、&lt;mark&gt;高亮&lt;/mark&gt;、&lt;small&gt;小号文字&lt;/small&gt;。&lt;/p&gt;</code></pre>
+				</div>
+				<div class="card">
+					<h3>效果展示</h3>
+					<div class="demo-box">
+						<h1 style="margin:0 0 12px;">一级标题</h1>
+						<p style="margin:0;">这是普通段落，<strong>加粗</strong>、<em>斜体</em>、<mark>高亮</mark>、<small>小号文字</small>。</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="style">
+			<h2>二、装饰方法</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>代码样例</h3>
+					<pre><code>&lt;p style="color:#f472b6; text-decoration:underline;"&gt;
+	装饰后的文本
+&lt;/p&gt;</code></pre>
+				</div>
+				<div class="card">
+					<h3>效果展示</h3>
+					<div class="demo-box">
+						<p class="colorful underline shadow" style="margin:0; font-size:1.2rem;">装饰后的文本</p>
+						<p class="tip">提示：也可以通过 CSS 类统一管理颜色、边框、阴影与背景效果。</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="layout">
+			<h2>三、排版方法</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>代码样例</h3>
+					<pre><code>&lt;div style="display:flex; gap:12px;"&gt;
+	&lt;div&gt;模块 A&lt;/div&gt;
+	&lt;div&gt;模块 B&lt;/div&gt;
+	&lt;div&gt;模块 C&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+				<div class="card">
+					<h3>效果展示</h3>
+					<div class="layout-demo">
+						<div>模块 A</div>
+						<div>模块 B</div>
+						<div>模块 C</div>
+					</div>
+				</div>
+			</div>
+			<div class="card" style="margin-top:18px;">
+				<h3>表格排版示例</h3>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr><th>标签</th><th>作用</th><th>常见用途</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>&lt;header&gt;</td><td>页面头部</td><td>标题、导航</td></tr>
+							<tr><td>&lt;main&gt;</td><td>主体内容</td><td>主要学习内容</td></tr>
+							<tr><td>&lt;section&gt;</td><td>内容分区</td><td>模块化组织页面</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section id="media">
+			<h2>四、图片、音频等媒体插入</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>代码样例</h3>
+					<pre><code>&lt;img src="image.jpg" alt="示例图片"&gt;
+&lt;audio controls&gt;
+	&lt;source src="music.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+				</div>
+				<div class="card">
+					<h3>效果展示</h3>
+					<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="示例图片">
+					<p style="margin-bottom:8px;">图片展示</p>
+					<audio controls style="width:100%;">
+						<source src="" type="audio/mpeg">
+						你的浏览器不支持音频播放。
+					</audio>
+					<p class="tip">说明：音频地址可替换为本地或网络资源。</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="link">
+			<h2>五、链接跳转插入方法</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>代码样例</h3>
+					<pre><code>&lt;a href="#text"&gt;跳转到文本格式&lt;/a&gt;
+&lt;a href="https://www.example.com" target="_blank"&gt;外部链接&lt;/a&gt;</code></pre>
+				</div>
+				<div class="card">
+					<h3>效果展示</h3>
+					<p><a class="btn" href="#text">跳转到文本格式</a></p>
+					<p><a class="btn" href="#media">跳转到媒体插入</a></p>
+					<p><a class="btn" href="https://www.example.com" target="_blank" rel="noopener noreferrer">打开外部链接</a></p>
+				</div>
+			</div>
+		</section>
+
+		<section id="advanced">
+			<h2>六、高级操作</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>代码样例</h3>
+					<pre><code>&lt;details&gt;
+	&lt;summary&gt;点击查看更多内容&lt;/summary&gt;
+	&lt;p&gt;可用于折叠说明、FAQ、课程笔记等。&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+				</div>
+				<div class="card">
+					<h3>效果展示</h3>
+					<details>
+						<summary>点击查看更多内容</summary>
+						<p>可用于折叠说明、FAQ、课程笔记等。</p>
+					</details>
+					<details style="margin-top:12px;">
+						<summary>课程学习建议</summary>
+						<p>先学文本与链接，再学布局与媒体，最后练习表单、语义标签和页面结构设计。</p>
+					</details>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		HTML 学习主页示例 · 可继续扩展为独立子页面或课程导航站
+	</footer>
+</body>
+</html>

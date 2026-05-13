@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML の演習課題</title>
+</head>
+<body>
+    <!--フォームを作成し、二つのテキストボックスを配置して
+    名前と住所を入力、そして送信ボタンを配置
+    ボタンを押せば、sub/Question_30_b.htmlに遷移する-->
+    <form action="sub/Question_30_b.html" method="get">
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="address">住所:</label>
+        <input type="text" id="address" name="address"><br><br>
+        <input type="submit" value="送信">
+    </form>
+    <br><br>
+    
+    <!--フォームを作成し、「パスワード入力ボックス・ラジオボタン・チェックボックス・非表示項目・
+日付入力ボックス」の計 5 種類を配置して
+    パスワード
+    性別
+    好きな食べ物
+    非表示項目
+    日付入力-->
+    <form>
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <label>性別:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">男性</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">女性</label><br><br>
+
+        <label>好きな食べ物:</label>
+        <input type="checkbox" id="pizza" name="food" value="pizza">
+        <label for="pizza">ピザ</label>
+        <input type="checkbox" id="sushi" name="food" value="sushi">
+        <label for="sushi">寿司</label>
+        <input type="checkbox" id="burger" name="food" value="burger">
+        <label for="burger">ハンバーガー</label><br><br>
+
+        <input type="hidden" name="hiddenField" value="これは非表示の値です"><br><br>
+
+        <label for="date">日付入力:</label>
+        <input type="date" id="date" name="date"><br><br>
+
+    </form>
+
+    <br><br>
+
+    <form action="sub/Question_30_b.html" method="get">
+        <label for="name">必須項目</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <input type="submit" value="送信">
+    </form>
+</body>
+
+</html>

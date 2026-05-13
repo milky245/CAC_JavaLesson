@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML の演習課題</title>
+</head>
+<!-- <style>
+table {
+    border-collapse: collapse; /* 关键：合并边框 */
+    border: 3px solid rgb(61, 61, 61);    /* 外边框 */
+}
+
+td {
+    border: 2px solid gray;    /* 内边框 */
+    padding: 10px;
+    text-align: center;
+}
+</style> -->
+<body>
+    <!--作成したテーブルの外枠と内枠の線を表示して-->
+    <table border="2">
+    <!-- 第1行 -->
+    <tr>
+        <td colspan="3">水平方向の結合セル</td>
+    </tr>
+
+    <!-- 第2行 -->
+    <tr>
+        <td rowspan="2">垂直方向の結合セル</td>
+        <td>2行2列目のセル</td>
+        <td>2行3列目のセル</td>
+    </tr>
+
+    <!-- 第3行 -->
+    <tr>
+        <td>3行2列目のセル</td>
+        <td>3行3列目のセル</td>
+    </tr>
+    </table>
+
+</body>
+
+</html>

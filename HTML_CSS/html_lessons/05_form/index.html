@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>フォームの学習</title>
+    </head>
+    <body>
+        <h1>フォームの送信メソッド（GETとPOST）</h1>
+        <p>
+            action属性は「送信先」、method属性は「送信方法（GETかPOST）」を指定します。
+        </p>
+
+        <h2>1. GETメソッドで送信</h2>
+        <p>検索など、URLにデータを含めて送る場合に使います。</p>
+        <form action="search_result.html" method="get">
+            <!--TODO ここに記述-->
+            <!--标题为検索キーワード，搜索框默认值为“ITパスポート”，右侧按钮为“検索（GET）”-->
+            <!--单击按钮后调用action并跳转到search_result.html-->
+            <label for="keyword">検索キーワード:</label>
+            <input type="text" id="keyword" name="keyword" />
+            <button type="submit">検索（GET）</button>
+        </form>
+
+        <hr />
+
+        <h2>2. POSTメソッドで送信</h2>
+        <p>
+            ログインや個人情報の入力など、URLにデータを表示させずに裏側で送る場合に使います。
+        </p>
+        <form action="login_result.html" method="post">
+            <!--TODO ここに記述-->
+            <!--上下两个搜索框，第一个标题为ユーザーID，第二个标题为パスワード-->
+            <!--下方按钮为“ログイン（POST），按下后调用POST方法跳转到login_result.html”-->
+            <label for="userid">ユーザーID:</label>
+            <input type="text" id="userid" name="userid" />
+            <br />
+            <label for="password">パスワード:</label>
+            <input type="password" id="password" name="password" />
+            <br />
+            <button type="submit">ログイン（POST）</button>
+        </form>
+    </body>
+</html>
