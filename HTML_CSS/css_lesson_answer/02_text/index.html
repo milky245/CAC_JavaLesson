@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>② 文字の表示位置</title>
+        <style>
+            .box {
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            .left-text {
+                text-align: left; /* 左寄せ（デフォルト） */
+            }
+
+            .center-text {
+                text-align: center; /* 中央揃え */
+            }
+
+            .right-text {
+                text-align: right; /* 右寄せ */
+            }
+        </style>
+    </head>
+    <body>
+        <h1>文字の配置（text-align）</h1>
+
+        <div class="box left-text">
+            <p>左寄せのテキストです。（通常はこの配置になります）</p>
+        </div>
+
+        <div class="box center-text">
+            <p>
+                中央揃えのテキストです。<br />タイトルやボタンによく使われます。
+            </p>
+        </div>
+
+        <div class="box right-text">
+            <p>右寄せのテキストです。<br />日付や署名などによく使われます。</p>
+        </div>
+    </body>
+</html>

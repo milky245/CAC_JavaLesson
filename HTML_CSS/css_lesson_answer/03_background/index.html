@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>③ 背景の学習</title>
+        <style>
+            .color-bg {
+                background-color: #e0f7fa; /* 薄い水色 */
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .image-bg {
+                /* 背景画像の設定 */
+                background-image: url("https://picsum.photos/800/400");
+                background-size: cover; /* 枠いっぱいに広げる */
+                background-position: center; /* 画像の中央を表示 */
+
+                color: white;
+                font-weight: bold;
+                padding: 50px 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>背景（background）の指定</h1>
+
+        <div class="color-bg">
+            <h2>背景色の指定</h2>
+            <p>background-colorを使って、この領域の背景を水色にしています。</p>
+        </div>
+
+        <div class="image-bg">
+            <h2>背景画像の指定</h2>
+            <p>
+                background-imageを使って画像を表示し、<br />
+                background-size: cover; で隙間なく埋めています。<br />
+                画像は→のように指定すると読み込むことができます。　url(https://picsum.photos/800/400);　
+            </p>
+        </div>
+    </body>
+</html>

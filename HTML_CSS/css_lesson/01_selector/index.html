@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>① セレクタの学習</title>
+        <style>
+            /*プロパティと値をコメントにしてあります。セレクタの中に記述を行ってください*/
+            /* 1. タイプセレクタ：すべてのpタグに適用 */
+            /*color: #333333;
+                font-size: 16px;*/
+
+            /* 2. IDセレクタ（#）：ページ内で1箇所だけにある特別な要素に適用 */
+            /*color: blue;
+                font-weight: bold;
+                font-size: 20px;*/
+
+            /* 3. CLASSセレクタ（.）：複数の要素に共通して適用 */
+            /*color: red;
+                background-color: #ffeeee;
+                padding: 5px;*/
+        </style>
+    </head>
+    <body>
+        <h1>セレクタの使い分け</h1>
+
+        <p>これは普通の段落（タイプセレクタが適用）です。</p>
+
+        <p id="special-message">
+            これは特別なメッセージ（IDセレクタが適用）です。
+        </p>
+
+        <p class="warning">これは注意書きその1（CLASSセレクタが適用）です。</p>
+        <p>ここは普通の段落です。</p>
+        <p class="warning">これは注意書きその2（CLASSセレクタが適用）です。</p>
+    </body>
+</html>

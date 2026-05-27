@@ -1,0 +1,190 @@
+/* 全体設定 */
+body {
+
+    margin: 0;
+    padding: 0;
+
+    font-family: "Yu Gothic", sans-serif;
+
+    background: linear-gradient(
+    135deg,
+    #7cc6e6,
+    #d9e8f7,
+    #dbeff4
+);
+
+    color: #333;
+}
+
+/* 全体の箱 */
+.container {
+
+    width: 80%;
+
+    max-width: 900px;
+
+    margin: 30px auto;
+
+}
+
+/* タイトル */
+header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+header h1 {
+
+    font-size: 42px;
+
+    color: #2c3e50;
+
+    margin-bottom: 10px;
+}
+
+.sub-title {
+
+    color: #777;
+
+    font-size: 16px;
+}
+
+/* プロフィール */
+.profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+    margin-bottom: 30px;
+}
+
+/* 画像 */
+.profile img {
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid #4da6ff;
+
+    transition: 0.3s;
+}
+
+.profile img:hover {
+
+    transform: scale(1.05);
+}
+
+/* 基本情報 */
+.profile-text h2 {
+
+    border-left: 6px solid #4da6ff;
+
+    padding-left: 10px;
+
+    color: #2c3e50;
+}
+
+.profile-text p {
+
+    line-height: 1.8;
+}
+
+/* カード */
+.card {
+
+    background-color: white;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 見出し */
+.card h2 {
+
+    border-left: 6px solid #4da6ff;
+
+    padding-left: 10px;
+
+    color: #2c3e50;
+}
+
+/* 文章 */
+.card p {
+
+    line-height: 1.8;
+}
+
+/* リンク */
+a {
+
+    color: #0077cc;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+a:hover {
+
+    color: #ff6600;
+}
+
+/* フッター */
+footer {
+
+    text-align: center;
+
+    color: gray;
+
+    margin-top: 40px;
+
+    margin-bottom: 20px;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+
+    .profile {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .container {
+
+        width: 92%;
+    }
+}

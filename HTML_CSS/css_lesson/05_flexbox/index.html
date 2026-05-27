@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>⑤ Flexbox（横並び）</title>
+        <style>
+            /* 親要素（コンテナ）の設定 */
+            .flex-container {
+                /* TODO 子要素を横並びにする */
+
+                background-color: #f0f0f0;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            /* 子要素の配置パターン */
+            .flex-start {
+                /* TODO 左詰めで並べる */
+
+                gap: 10px; /* 要素同士の隙間を10pxにする */
+            }
+
+            .space-between {
+                /* TODO 両端に配置し、間隔を均等にする */
+            }
+
+            /* 子要素（アイテム）自体のデザイン */
+            .item {
+                background-color: #4caf50;
+                color: white;
+                padding: 20px;
+                width: 100px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Flexboxを使った横並び</h1>
+
+        <h2>1. 左詰めで並べる（隙間は gap で指定）</h2>
+        <div class="flex-container flex-start">
+            <div class="item">メニュー1</div>
+            <div class="item">メニュー2</div>
+            <div class="item">メニュー3</div>
+        </div>
+
+        <h2>2. 両端揃えで均等に配置（space-between）</h2>
+        <div class="flex-container space-between">
+            <div class="item">左端</div>
+            <div class="item">真ん中</div>
+            <div class="item">右端</div>
+        </div>
+    </body>
+</html>
