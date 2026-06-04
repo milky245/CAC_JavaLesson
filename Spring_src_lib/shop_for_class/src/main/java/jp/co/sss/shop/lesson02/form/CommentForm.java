@@ -18,9 +18,9 @@ public class CommentForm {
 	/** コメントの投稿日時です。編集画面で表示するために利用します。 */
 	private Date createdTime;
 
-	/** コメント本文です。未入力不可、255文字以内の入力チェックを行います。 */
+	/** コメント本文です。未入力不可、100文字以内の入力チェックを行います。 */
 	@NotBlank
-	@Size(max = 255)
+	@Size(max = 100)
 	private String text;
 
 	public Integer getId() {

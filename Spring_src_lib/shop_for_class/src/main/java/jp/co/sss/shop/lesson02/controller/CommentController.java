@@ -122,6 +122,7 @@ public class CommentController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("commentList", commentRepository.findByUser(loginUser));
+			model.addAttribute("formMessage", "コメントを登録できませんでした。入力内容を確認してください。");
 			return "lesson02/top";
 		}
 
@@ -191,6 +192,7 @@ public class CommentController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("commentForm", form);
+			model.addAttribute("formMessage", "コメントを更新できませんでした。入力内容を確認してください。");
 			return "lesson02/edit_comment";
 		}
 

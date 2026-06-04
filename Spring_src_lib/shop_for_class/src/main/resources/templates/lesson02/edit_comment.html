@@ -28,6 +28,8 @@
 			</div>
 
 			<form class="form-stack" th:action="@{/top-comment/exe-update}" method="post" th:object="${commentForm}">
+				<div class="message-box error" role="alert" th:if="${formMessage}" th:text="${formMessage}"></div>
+
 				<div class="info-grid">
 					<div>
 						<span class="info-label">コメントID</span>

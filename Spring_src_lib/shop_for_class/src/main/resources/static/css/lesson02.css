@@ -252,6 +252,19 @@ h2 {
 	font-weight: 600;
 }
 
+.message-box {
+	padding: 12px 14px;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.message-box.error {
+	border: 1px solid #f0b9b4;
+	background: var(--danger-soft);
+	color: var(--danger);
+}
+
 .alert {
 	margin: 0 0 16px;
 	padding: 10px 12px;

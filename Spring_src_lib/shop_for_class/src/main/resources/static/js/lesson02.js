@@ -12,9 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		textarea.addEventListener("input", () => updateCount(textarea));
 	});
 
-	const firstError = document.querySelector(".field-error:not(:empty), .alert:not(:empty)");
+	const firstError = document.querySelector(".message-box.error, .field-error:not(:empty), .alert:not(:empty)");
 	if (firstError) {
 		firstError.scrollIntoView({ block: "center" });
+		const form = firstError.closest("form");
+		const firstInput = form ? form.querySelector("textarea, input") : null;
+		if (firstInput) {
+			firstInput.focus({ preventScroll: true });
+		}
 	}
 
 	const deleteForm = document.querySelector(".js-delete-form");

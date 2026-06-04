@@ -82,6 +82,7 @@
 					<h2>コメント投稿</h2>
 				</div>
 				<form class="form-stack" th:action="@{/addComment}" method="post" th:object="${commentForm}">
+					<div class="message-box error" role="alert" th:if="${formMessage}" th:text="${formMessage}"></div>
 					<label class="field">
 						<span>コメント</span>
 						<textarea class="text-area js-countable" th:field="*{text}" maxlength="255" rows="5"></textarea>
