@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ログイン</title>
+	<link rel="stylesheet" th:href="@{/css/lesson02.css}">
+	<script defer th:src="@{/js/lesson02.js}"></script>
+</head>
+
+<body class="lesson02-body">
+	<div class="page-shell auth-shell">
+		<main class="auth-panel">
+			<div class="page-heading">
+				<p class="eyebrow">Lesson 02</p>
+				<h1>ログイン</h1>
+			</div>
+
+			<p class="alert" th:if="${errMsg}" th:text="${errMsg}"></p>
+
+			<form class="form-stack" th:action="@{/top}" method="post" th:object="${loginForm}">
+				<label class="field">
+					<span>ログインID</span>
+					<input class="text-input" type="text" th:field="*{id}" placeholder="1111 or 2222">
+					<span class="field-error" th:errors="*{id}"></span>
+				</label>
+
+				<label class="field">
+					<span>パスワード</span>
+					<input class="text-input" type="password" th:field="*{password}" placeholder="aaa@123 or bbb@456">
+					<span class="field-error" th:errors="*{password}"></span>
+				</label>
+
+				<button class="button primary full-width" type="submit">ログイン</button>
+			</form>
+		</main>
+	</div>
+</body>
+
+</html>

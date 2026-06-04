@@ -1,0 +1,38 @@
+--以下は system でログインして実行 
+-- ユーザーの作成 
+ALTER SESSION SET CONTAINER = XEPDB1;
+CREATE USER spring_practice IDENTIFIED BY systemsss; 
+
+-- 権限の付与 
+GRANT ALL PRIVILEGES TO spring_practice; 
+ 
+--以下は spring_practice でログインし直して実行 
+
+-- 果物テーブルの作成
+CREATE TABLE fruits_season (
+  fruit_id NUMBER(5) PRIMARY KEY, -- 識別番号
+  fruit_name VARCHAR2(20 CHAR) NOT NULL, -- 果物の名前
+  season_month NUMBER(2)-- 月で入力、13:通年
+ );
+
+-- シーケンスの作成
+CREATE SEQUENCE seq_fruits_season NOCACHE;
+
+
+-- 果物テーブルへのレコード登録
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'とちおとめ',3);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'さがほのか',3);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'あすかルビー',2);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'温州みかん',12);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'紅マドンナ',12);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'大三島ネーブル',1);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'グレープフルーツ',13);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'アボガド',13);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'王林',11);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'幸水',9);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'シャインマスカット',9);
+INSERT INTO fruits_season VALUES(seq_fruits_season.nextval,'ピオーネ',9);
+
+COMMIT; 
+
+

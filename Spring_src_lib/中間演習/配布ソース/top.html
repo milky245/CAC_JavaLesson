@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<header>ようこそ ID:<a th:href="@{'/detail'}"><span th:text="${session.id}"></span>さん</a>←クリックしてね</header>
+
+<h2>他の機能は工事中です</h2>
+<img alt="工事中" th:src="@{'/img/kensetsuchuu.png'}" height="400" width="300">
+
+</body>
+</html>

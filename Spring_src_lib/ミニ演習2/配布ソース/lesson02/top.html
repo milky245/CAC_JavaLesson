@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+table {
+	border: 2px double #aaa;
+	border-collapse: collapse;
+	width: 500px;
+}
+
+table tr:nth-child(odd) {
+	background-color: #ddd;
+}
+
+table th {
+	background-color: #bbb;
+	border: 1px solid #aaa;
+}
+
+table td {
+	border: 1px solid #aaa;
+}
+
+textarea {
+	width: 450px;
+}
+
+.wrapper {
+	min-height: 100vh;
+	position: relative;
+}
+
+footer {
+	background-color: white;
+	position: fixed;
+	bottom: 0px;
+	padding: 15px;
+	width: 100%;
+}
+</style>
+
+</head>
+<body>
+
+	<div class="wrapper">
+		<header>
+			ようこそ ID:<a th:href="@{/detail}"><span th:text="${session.loginUser.id}"></span></a>さん←クリックしてね 
+			<a th:href="@{/do-logout}">ログアウト</a>
+		</header>
+		<main>
+			<div>
+				<h2>コメント機能です</h2>
+				<form th:action="@{/top-comment}" method="post">
+					<input type="submit" value="全件表示" />
+				</form>
+
+				<form th:action="@{/top-comment/date-desc}" method="post">
+					<input type="submit" value="投稿日時順並び替え（降順）" />
+				</form>
+				
+				<form th:action="@{/top-comment/search-comment}" method="get">
+				<span th:text="検索したいコメントを入力してください"></span><br>
+					<input type="search" name="searchText" />
+					<input type="submit" value="検索" />
+				</form>
+				
+				
+			<a th:href="@{/top-comment/check-delete}"><span th:text="コメント削除"></span></a>
+
+			</div>
+
+			<h3>
+				<span th:text="${session.loginUser.userName}"></span>さんの投稿一覧
+			</h3>
+			<table>
+				<tr>
+					<th>No</th>
+					<th>投稿日時</th>
+					<th>投稿コメント</th>
+					<th>編集</th>
+
+				</tr>
+				<tr th:each="comment:${commentList}">
+					<td th:text="${comment.id}"></td>
+					<td
+						th:text="${#dates.format(comment.createdTime,'yyyy-MM-dd HH:mm')}"></td>
+					<td><th:block th:each="line:${comment.text.split('\n',-1)}">
+							<!-- 文字列を改行\nごとに分割 -->
+							<th:block th:text="${line}" />
+							<br>
+						</th:block></td>
+					<td>
+						<form
+							th:action="@{/top-comment/edit/{commentId}(commentId=${comment.id})}" method="post">
+							<input type="submit" value="編集" />
+						</form>
+
+					</td>
+				</tr>
+			</table>
+
+
+		</main>
+		<footer>
+			コメントを投稿してください
+			<form th:action="@{/addComment}" method="post" th:object="${commentForm}">
+				<textarea name="text" th:field="*{text}"></textarea><span th:errors="*{text}"></span>
+				<input type="submit" value="投稿">
+			</form>
+		</footer>
+	</div>
+</body>
+</html>

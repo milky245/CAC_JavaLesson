@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header>
+		ようこそ ID:<a th:href="@{'top'}"><span th:text="${session.id}"></span>さん</a>
+	</header>
+
+	<h2>個人情報です</h2>
+	<ul>
+		<li>ログインID：<span th:text="${session.id}"></span>
+		<li>パスワード：**********(非表示)
+		<li>氏名：<span th:text="${name}"></span>
+	</ul>
+
+
+
+
+</body>
+</html>

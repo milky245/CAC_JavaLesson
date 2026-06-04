@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>
+	<span th:text="'ログイン画面'"></span>
+</h3>
+	ログインしてください
+	<form th:action="@{'/top'}" method="post">
+		<ul>
+		<li>
+			ログインID（1111）：
+			<input type="text" name="id" /> 
+		<li>	
+			パスワード（aaa@123）：
+			<input type="password" name="password" />
+		</ul>
+<input type="submit" name="送信">
+	</form>
+	<span th:text="${errorMessage}" style="color: red;"></span>
+
+</body>
+</html>

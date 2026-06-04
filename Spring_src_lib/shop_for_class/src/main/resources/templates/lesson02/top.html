@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>コメント一覧</title>
+	<link rel="stylesheet" th:href="@{/css/lesson02.css}">
+	<script defer th:src="@{/js/lesson02.js}"></script>
+</head>
+
+<body class="lesson02-body">
+	<div class="page-shell">
+		<header class="app-header">
+			<a class="brand-link" th:href="@{/top-comment}">Comment Board</a>
+			<nav class="header-nav">
+				<a th:href="@{/detail}">
+					ID:<span th:text="${session.loginUser.id}"></span>
+				</a>
+				<a th:href="@{/do-logout}">ログアウト</a>
+			</nav>
+		</header>
+
+		<main class="content-layout">
+			<section class="panel">
+				<div class="page-heading split-heading">
+					<div>
+						<p class="eyebrow">Comments</p>
+						<h1><span th:text="${session.loginUser.userName}"></span>さんの投稿一覧</h1>
+					</div>
+					<a class="button danger subtle" th:href="@{/top-comment/check-delete}">削除画面へ</a>
+				</div>
+
+				<div class="toolbar">
+					<form th:action="@{/top-comment}" method="post">
+						<button class="button" type="submit">全件表示</button>
+					</form>
+
+					<form th:action="@{/top-comment/date-desc}" method="post">
+						<button class="button" type="submit">新しい順</button>
+					</form>
+
+					<form class="search-form" th:action="@{/top-comment/search-comment}" method="get">
+						<input class="text-input" type="search" name="searchText" th:value="${searchText}" placeholder="コメントを検索">
+						<button class="button primary" type="submit">検索</button>
+					</form>
+				</div>
+
+				<div class="table-wrap">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>投稿日時</th>
+								<th>投稿コメント</th>
+								<th>編集</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="comment:${commentList}">
+								<td class="number-cell" th:text="${comment.id}"></td>
+								<td class="date-cell" th:text="${#dates.format(comment.createdTime,'yyyy-MM-dd HH:mm')}"></td>
+								<td class="comment-cell">
+									<th:block th:each="line:${comment.text.split('\n',-1)}">
+										<th:block th:text="${line}" />
+										<br>
+									</th:block>
+								</td>
+								<td class="action-cell">
+									<form th:action="@{/top-comment/edit/{commentId}(commentId=${comment.id})}" method="post">
+										<button class="button compact" type="submit">編集</button>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<section class="panel composer-panel">
+				<div class="section-heading">
+					<h2>コメント投稿</h2>
+				</div>
+				<form class="form-stack" th:action="@{/addComment}" method="post" th:object="${commentForm}">
+					<label class="field">
+						<span>コメント</span>
+						<textarea class="text-area js-countable" th:field="*{text}" maxlength="255" rows="5"></textarea>
+						<span class="field-meta"><span class="js-count">0</span>/255</span>
+						<span class="field-error" th:errors="*{text}"></span>
+					</label>
+					<button class="button primary" type="submit">投稿</button>
+				</form>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

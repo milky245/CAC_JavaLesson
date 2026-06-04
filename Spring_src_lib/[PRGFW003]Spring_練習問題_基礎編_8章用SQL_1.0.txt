@@ -1,0 +1,59 @@
+--以下は spring_practice でログインし実行 
+
+-- 種別テーブルの作成 
+CREATE TABLE type ( 
+type_id NUMBER(3) PRIMARY KEY, 
+type_name VARCHAR2(10 CHAR) NOT NULL 
+); 
+
+-- フルーツショップテーブルの作成
+CREATE TABLE fruits_shop_items (
+  item_id NUMBER(5) PRIMARY KEY, -- 識別番号
+  item_name VARCHAR2(40 CHAR) NOT NULL, -- 商品の名前
+  price NUMBER(6) NOT NULL,
+  type_id NUMBER(3) REFERENCES type(type_id) NOT NULL
+);
+
+
+-- シーケンスの作成
+CREATE SEQUENCE seq_fruits_shop_items NOCACHE;
+
+-- シーケンスの作成
+CREATE SEQUENCE seq_type NOCACHE;
+
+
+-- レコード登録(分類) 
+INSERT INTO type VALUES(seq_type.nextval, 'ぶどう'); --1
+INSERT INTO type VALUES(seq_type.nextval, '柑橘類'); --2
+INSERT INTO type VALUES(seq_type.nextval, 'りんご'); --3
+INSERT INTO type VALUES(seq_type.nextval, '和梨'); --4
+INSERT INTO type VALUES(seq_type.nextval, 'ベリー類'); --5
+INSERT INTO type VALUES(seq_type.nextval, 'ウリ類'); --6
+INSERT INTO type VALUES(seq_type.nextval, '桃'); --7
+INSERT INTO type VALUES(seq_type.nextval, 'ナッツ類'); --8
+INSERT INTO type VALUES(seq_type.nextval, 'その他'); --9
+ 
+-- レコード登録(食料品) 
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'とちおとめ 1パック(270g)',950,5);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'さがほのか 1パック(270g)',800,5);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'あすかルビー 1パック(270g)',500,5);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'温州みかん(10kg)',2500,2);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'紅マドンナ(5kg)',6980,2);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'清見(5kg)',2500,2); 
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'グレープフルーツ(1玉)',239,2);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'アボガド(1個)',136,9);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'王林(1個)',199,3);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'幸水(大玉1個)',620,4);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'シャインマスカット(大粒 1房)',2580,1);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'ピオーネ(大粒 1房)',1980,1);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'清水白桃(5玉)',8000,7);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'黄金桃(5玉)',3400,7);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'マスカット・オブ・アレキサンドリア(大粒 1房)',4500,1);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'むき栗(180g)',280,8);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'ローストクルミ(330g)',890,8);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'ローストアーモンド(370g)',890,8);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'レーズン(200g)',490,1);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'さや付き落花生(500g)',1790,8);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'デラウェア(2kg 15房)',4800,1);
+INSERT INTO fruits_shop_items VALUES(seq_fruits_shop_items.nextval,'巨峰(1kg 3房)',4750,1);
+COMMIT; 

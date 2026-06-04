@@ -1,0 +1,16 @@
+jp.co.sss.shop.lesson02
+├─controller
+│      CommentController.java
+│      LoginController.java
+│
+├─entity
+│      Comment.java
+│      User.java
+│
+├─form
+│      CommentForm.java
+│      LoginForm.java
+│
+└─repository
+        CommentRepository.java
+        UserRepository.java

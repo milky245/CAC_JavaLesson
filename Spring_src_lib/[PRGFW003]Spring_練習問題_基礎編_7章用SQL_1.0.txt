@@ -1,0 +1,66 @@
+--以下は spring_practice でログインし実行 
+
+-- 産地テーブルの作成 
+CREATE TABLE area ( 
+area_id NUMBER(2) PRIMARY KEY, 
+area_name VARCHAR2(10 CHAR) NOT NULL,
+detail VARCHAR2(30 CHAR)
+); 
+
+
+-- 果物の産地テーブルの作成
+CREATE TABLE fruits_area (
+  fruit_id NUMBER(5) PRIMARY KEY, -- 識別番号
+  fruit_name VARCHAR2(20 CHAR) NOT NULL, -- 果物の名前
+  area_id NUMBER(2) REFERENCES area(area_id) NOT NULL-- 外部参照
+ );
+
+
+-- シーケンスの作成
+CREATE SEQUENCE seq_area NOCACHE;
+
+-- シーケンスの作成
+CREATE SEQUENCE seq_fruits_area NOCACHE;
+
+-- レコード登録(産地) 
+INSERT INTO area VALUES(seq_area.nextval, '北海道','離島も含む北海道地方全域'); --1
+INSERT INTO area VALUES(seq_area.nextval, '北奥羽','青森県、秋田県、岩手県'); --2
+INSERT INTO area VALUES(seq_area.nextval, '南奥羽','宮城県、山形県、福島県'); --3
+INSERT INTO area VALUES(seq_area.nextval, '北関東','茨城県、群馬県、栃木県、埼玉県'); --4
+INSERT INTO area VALUES(seq_area.nextval, '南関東','東京都、神奈川県、千葉県'); --5
+INSERT INTO area VALUES(seq_area.nextval, '甲信越','山梨県、長野県、新潟県'); --6
+INSERT INTO area VALUES(seq_area.nextval, '北陸','福井県、富山県、石川県'); --7
+INSERT INTO area VALUES(seq_area.nextval, '東海','静岡県、岐阜県、愛知県、三重県'); --8
+INSERT INTO area VALUES(seq_area.nextval, '近畿北部','京都府北部、滋賀県北部、兵庫県北部'); --9
+INSERT INTO area VALUES(seq_area.nextval, '近畿中部','大阪府、京都府南部、兵庫県南部、滋賀県南部、奈良県北部'); --10
+INSERT INTO area VALUES(seq_area.nextval, '近畿南部','奈良県南部、和歌山県'); --11
+INSERT INTO area VALUES(seq_area.nextval, '山陰','鳥取県、島根県'); --12
+INSERT INTO area VALUES(seq_area.nextval, '山陽','岡山県、広島県、山口県'); --13
+INSERT INTO area VALUES(seq_area.nextval, '四国','香川県、徳島県、愛媛県、高知県'); --14
+INSERT INTO area VALUES(seq_area.nextval, '北九州','福岡県、佐賀県、長崎県'); --15
+INSERT INTO area VALUES(seq_area.nextval, '南九州','熊本県、大分県、宮崎県、鹿児島県'); --16
+INSERT INTO area VALUES(seq_area.nextval, '沖縄','離島も含む沖縄地方全域'); --17
+INSERT INTO area VALUES(seq_area.nextval, '国外','日本国内以外の地域'); --18
+
+
+-- レコード登録(果物の産地)
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'とちおとめ',4); 
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'さがほのか',15); 
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'あすかルビー',10); 
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'温州みかん',11); 
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'紅マドンナ',14);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'大三島ネーブル',14);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'グレープフルーツ',18);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'アボガド',18);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'王林',2);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'幸水',12);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'シャインマスカット',13);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'ピオーネ',13);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'清水白桃',13);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'黄金桃',4);
+INSERT INTO fruits_area VALUES(seq_fruits_area.nextval,'マスカット・オブ・アレキサンドリア',13);
+
+COMMIT; 
+
+
+

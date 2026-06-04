@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<header>
+		ようこそ ID:<a th:href="@{/detail}"><span th:text="${session.loginUser.id}"></span>さん</a>
+		<a th:href="@{/do-logout}">ログアウト</a>
+	</header>
+
+	<h2>コメント編集画面です</h2>
+	<form th:action="@{/top-comment/exe-update}" method="post" th:object="${commentForm}">
+		<ul>
+			<li>コメントID：<span th:text="*{id}"></span>
+			<li>投稿日時：<span th:text="*{#dates.format(createdTime,'yyyy-MM-dd HH:mm')}"></span>
+			<li>コメント：<textarea th:field="*{text}" name=text></textarea><span th:errors="*{text}"></span>
+		</ul>
+		<input type="hidden" th:field="*{id}">
+		<input type="submit" value="完了">
+	</form>
+
+</body>
+
+</html>

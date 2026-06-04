@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>コメント削除</title>
+	<link rel="stylesheet" th:href="@{/css/lesson02.css}">
+	<script defer th:src="@{/js/lesson02.js}"></script>
+</head>
+
+<body class="lesson02-body">
+	<div class="page-shell">
+		<header class="app-header">
+			<a class="brand-link" th:href="@{/top-comment}">Comment Board</a>
+			<nav class="header-nav">
+				<a th:href="@{/detail}">
+					ID:<span th:text="${session.loginUser.id}"></span>
+				</a>
+				<a th:href="@{/do-logout}">ログアウト</a>
+			</nav>
+		</header>
+
+		<main class="panel">
+			<div class="page-heading split-heading">
+				<div>
+					<p class="eyebrow">Delete</p>
+					<h1>コメント削除</h1>
+				</div>
+				<a class="button" th:href="@{/top-comment}">一覧へ戻る</a>
+			</div>
+
+			<form class="js-delete-form" th:action="@{/top-comment/exe-delete}" method="post">
+				<div class="table-wrap">
+					<table class="data-table">
+						<thead>
+							<tr>
+								<th>選択</th>
+								<th>No</th>
+								<th>投稿日時</th>
+								<th>投稿コメント</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="comment:${commentList}">
+								<td class="check-cell">
+									<input class="checkbox-input" type="checkbox" th:value="${comment.id}" name="checkIds">
+								</td>
+								<td class="number-cell" th:text="${comment.id}"></td>
+								<td class="date-cell" th:text="${#dates.format(comment.createdTime,'yyyy-MM-dd HH:mm')}"></td>
+								<td class="comment-cell">
+									<th:block th:each="line:${comment.text.split('\n',-1)}">
+										<th:block th:text="${line}" />
+										<br>
+									</th:block>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="button-row">
+					<a class="button" th:href="@{/top-comment}">キャンセル</a>
+					<button class="button danger" type="submit">削除</button>
+				</div>
+			</form>
+		</main>
+	</div>
+</body>
+
+</html>

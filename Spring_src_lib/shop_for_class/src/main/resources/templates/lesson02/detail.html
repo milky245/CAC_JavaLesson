@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>個人情報</title>
+	<link rel="stylesheet" th:href="@{/css/lesson02.css}">
+</head>
+
+<body class="lesson02-body">
+	<div class="page-shell narrow-shell">
+		<header class="app-header">
+			<a class="brand-link" th:href="@{/top-comment}">Comment Board</a>
+			<nav class="header-nav">
+				<a th:href="@{/top-comment}">コメント一覧</a>
+				<a th:href="@{/do-logout}">ログアウト</a>
+			</nav>
+		</header>
+
+		<main class="panel">
+			<div class="page-heading">
+				<p class="eyebrow">Profile</p>
+				<h1>個人情報</h1>
+			</div>
+
+			<dl class="detail-list">
+				<div>
+					<dt>ログインID</dt>
+					<dd th:text="${session.loginUser.id}"></dd>
+				</div>
+				<div>
+					<dt>パスワード</dt>
+					<dd>**********</dd>
+				</div>
+				<div>
+					<dt>氏名</dt>
+					<dd th:text="${session.loginUser.userName}"></dd>
+				</div>
+			</dl>
+		</main>
+	</div>
+</body>
+
+</html>

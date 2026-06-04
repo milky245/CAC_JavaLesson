@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>コメント編集</title>
+	<link rel="stylesheet" th:href="@{/css/lesson02.css}">
+	<script defer th:src="@{/js/lesson02.js}"></script>
+</head>
+
+<body class="lesson02-body">
+	<div class="page-shell narrow-shell">
+		<header class="app-header">
+			<a class="brand-link" th:href="@{/top-comment}">Comment Board</a>
+			<nav class="header-nav">
+				<a th:href="@{/detail}">
+					ID:<span th:text="${session.loginUser.id}"></span>
+				</a>
+				<a th:href="@{/do-logout}">ログアウト</a>
+			</nav>
+		</header>
+
+		<main class="panel">
+			<div class="page-heading">
+				<p class="eyebrow">Edit</p>
+				<h1>コメント編集</h1>
+			</div>
+
+			<form class="form-stack" th:action="@{/top-comment/exe-update}" method="post" th:object="${commentForm}">
+				<div class="info-grid">
+					<div>
+						<span class="info-label">コメントID</span>
+						<strong th:text="*{id}"></strong>
+					</div>
+					<div>
+						<span class="info-label">投稿日時</span>
+						<strong th:text="*{#dates.format(createdTime,'yyyy-MM-dd HH:mm')}"></strong>
+					</div>
+				</div>
+
+				<label class="field">
+					<span>コメント</span>
+					<textarea class="text-area js-countable" th:field="*{text}" maxlength="255" rows="7"></textarea>
+					<span class="field-meta"><span class="js-count">0</span>/255</span>
+					<span class="field-error" th:errors="*{text}"></span>
+				</label>
+
+				<input type="hidden" th:field="*{id}">
+				<div class="button-row">
+					<a class="button" th:href="@{/top-comment}">戻る</a>
+					<button class="button primary" type="submit">更新</button>
+				</div>
+			</form>
+		</main>
+	</div>
+</body>
+
+</html>

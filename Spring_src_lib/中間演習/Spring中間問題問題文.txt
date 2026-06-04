@@ -1,0 +1,33 @@
+//問題
+//ログイン画面-トップ画面-詳細画面の3つの画面遷移を行い表示を行う
+//なお、表示例はスライドを参考のこと
+
+//【Java】
+//パッケージ名 jp.co.sss.shop.lesson01.web
+//クラス名1 LoginController.java コントローラクラス（要編集）
+//パッケージ名 jp.co.sss.shop.lesson01.form
+//クラス名2 LoginForm.java フォームクラス（新規作成）
+
+//以下の条件を満たすクラスを作成しなさい。
+//※「+」はpublic、「-」はprivate、「__」はstaticメンバを表す
+//【LoginForm】
+//	・フィールド
+//		- id:Integer
+//		- password:String
+//	・メソッド
+//		+ 各フィールドのsetter,getterを定義する（Eclipseの機能を用いて生成すること）
+//【LoginController】
+//※スコープ名はHTMLファイルを見て判断すること
+//	・メソッド
+//		+ showLogin():戻り値の型 String URLマッピング:/login
+//			・login.htmlへ遷移
+//		+ doLogin(LoginForm loginForm, HttpSession session, Model model):戻り値の型 String URLマッピング:/top
+//			・if:[入力パラメータ：id==1111かつpassword==aaa@123の場合]
+//				・セッションスコープにidを登録
+//				・top.htmlへ遷移
+//			・else:
+//				・"入力ミスです"をモデルスコープに登録
+//				・login.htmlへ遷移
+//		+ showDetail(Model model):戻り値の型 String URLマッピング:/detail
+//			・自分の名前をmodelスコープに登録
+//			・detail.htmlへ遷移

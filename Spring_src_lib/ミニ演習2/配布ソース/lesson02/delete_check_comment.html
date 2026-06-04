@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+
+	<style>
+		table {
+			border: 2px double #aaa;
+			border-collapse: collapse;
+			width: 500px;
+		}
+
+		table tr:nth-child(odd) {
+			background-color: #ddd;
+		}
+
+		table th {
+			background-color: #bbb;
+			border: 1px solid #aaa;
+		}
+
+		table td {
+			border: 1px solid #aaa;
+		}
+
+		textarea {
+			width: 450px;
+		}
+
+		.wrapper {
+			min-height: 100vh;
+			position: relative;
+		}
+
+		footer {
+			background-color: white;
+			position: fixed;
+			bottom: 0px;
+			padding: 15px;
+			width: 100%;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<header>
+			ようこそ ID:<a th:href="@{/detail}"><span th:text="${session.loginUser.id}"></span>さん</a>
+			<a th:href="@{/do-logout}">ログアウト</a>
+		</header>
+		<main>
+			<div>
+				<h2>コメント削除機能です</h2>
+			</div>
+
+			<h3>
+				<span th:text="${session.id}"></span>さんの投稿一覧
+			</h3>
+			<form th:action="@{/top-comment/exe-delete}" method="post">
+				<table>
+					<tr>
+						<th></th>
+						<th>No</th>
+						<th>投稿日時</th>
+						<th>投稿コメント</th>
+
+					</tr>
+					<tr th:each="comment:${commentList}">
+						<td><input type="checkbox" th:value="${comment.id}" name="checkIds"></td>
+						<td th:text="${comment.id}"></td>
+						<td th:text="${#dates.format(comment.createdTime,'yyyy-MM-dd HH:mm')}"></td>
+						<td>
+							<th:block th:each="line:${comment.text.split('\n',-1)}">
+								<!-- 文字列を行\nごとに分割 -->
+								<th:block th:text="${line}" />
+								<br>
+							</th:block>
+						</td>
+					</tr>
+				</table>
+
+				<input type="submit" value="削除">
+			</form>
+
+		</main>
+	</div>
+</body>
+
+</html>
